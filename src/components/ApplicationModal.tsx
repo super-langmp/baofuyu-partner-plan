@@ -6,7 +6,7 @@ interface ApplicationModalProps {
   onClose: () => void
 }
 
-const qrCodeUrl = `${import.meta.env.BASE_URL}wecom-join-qr.jpg`
+const qrCodeUrl = `${import.meta.env.BASE_URL}wecom-join-qr.png`
 
 export function ApplicationModal({ open, onClose }: ApplicationModalProps) {
   return (

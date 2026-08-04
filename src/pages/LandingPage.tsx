@@ -1,17 +1,16 @@
-import { ArrowDown, ArrowRight, Check } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { useState } from 'react'
 import { ApplicationModal } from '../components/ApplicationModal'
 import { BrandMark } from '../components/BrandMark'
 import { Header } from '../components/Header'
 import { Modal } from '../components/Modal'
 
-type InfoPage = 'rules' | 'privacy' | 'ugc' | 'career' | null
+type InfoPage = 'rules' | 'privacy' | 'ugc' | null
 
 const infoTitles: Record<Exclude<InfoPage, null>, string> = {
   rules: '活动规则',
   privacy: '隐私说明',
   ugc: 'UGC内容伙伴计划',
-  career: '向hr推荐自己',
 }
 
 function ActivityRules() {
@@ -90,13 +89,7 @@ function PrivacyNotice() {
 function InfoContent({ page }: { page: Exclude<InfoPage, null> }) {
   if (page === 'rules') return <ActivityRules />
   if (page === 'privacy') return <PrivacyNotice />
-  if (page === 'ugc') return <div className="info-copy info-copy--message"><p>更多活动，敬请期待</p></div>
-
-  return (
-    <div className="info-copy info-copy--message">
-      <p>hr邮箱：<a className="info-link" href="mailto:2330027631@qq.com">2330027631@qq.com</a></p>
-    </div>
-  )
+  return <div className="info-copy info-copy--message"><p>更多活动，敬请期待</p></div>
 }
 
 export function LandingPage() {
@@ -107,15 +100,15 @@ export function LandingPage() {
 
   return (
     <div className="campaign-page">
-      <Header />
+      <Header onJoin={openApplication} />
       <main>
         <section className="campaign-hero page-shell" id="intro">
-          <div className="campaign-hero__mark" aria-hidden="true">
-            <img src={`${import.meta.env.BASE_URL}baofuyu-logo-copper.png`} alt="" />
-          </div>
           <div className="campaign-hero__copy">
             <h1>宝肤语品牌<br />内容伙伴计划</h1>
             <p className="campaign-hero__lead">发内容，攒积分，换生活费</p>
+            <div className="campaign-hero__mark" aria-hidden="true">
+              <img src={`${import.meta.env.BASE_URL}baofuyu-logo-copper.png`} alt="" />
+            </div>
             <div className="reward-rail" aria-label="活动奖励">
               <div><span>发 1 条</span><strong>+3 积分</strong></div>
               <div><span>1 积分</span><strong>= 1 元</strong></div>
@@ -126,7 +119,6 @@ export function LandingPage() {
             </button>
             <p className="campaign-hero__trust">0 押金 · 0 会费 · 工作日可接</p>
           </div>
-          <a className="campaign-hero__scroll" href="#how" aria-label="继续了解参与方式"><ArrowDown size={21} /></a>
         </section>
 
         <section className="how-strip" id="how" aria-label="参与步骤">
@@ -137,40 +129,6 @@ export function LandingPage() {
           </div>
         </section>
 
-        <section className="points-section page-shell">
-          <div className="points-section__title">
-            <p>积分能做什么？</p>
-            <h2>直接兑换生活费</h2>
-          </div>
-          <div className="points-wallet" aria-label="积分钱包预览">
-            <div className="points-wallet__top">
-              <span>我的积分</span>
-              <strong>12</strong>
-              <em>= ¥12 可兑换</em>
-            </div>
-            <div className="points-wallet__task">
-              <div>
-                <span>今日任务</span>
-                <strong>品牌内容发布</strong>
-              </div>
-              <b>+3</b>
-            </div>
-            <ul>
-              <li><Check size={18} />指定素材</li>
-              <li><Check size={18} />按规则发布</li>
-              <li><Check size={18} />审核后到账</li>
-            </ul>
-          </div>
-        </section>
-
-        <section className="join-section" id="join">
-          <div className="page-shell join-section__inner">
-            <h2>一条内容，3 积分。</h2>
-            <button className="button button--white" type="button" onClick={openApplication}>
-              立即加入 <ArrowRight size={20} />
-            </button>
-          </div>
-        </section>
       </main>
 
       <footer className="campaign-footer page-shell">
@@ -179,7 +137,6 @@ export function LandingPage() {
           <button type="button" onClick={() => setInfoPage('rules')}>活动规则</button>
           <button type="button" onClick={() => setInfoPage('privacy')}>隐私说明</button>
           <button type="button" onClick={() => setInfoPage('ugc')}>UGC内容伙伴计划</button>
-          <button type="button" onClick={() => setInfoPage('career')}>向hr推荐自己</button>
         </div>
         <p>© 2026 宝肤语</p>
       </footer>

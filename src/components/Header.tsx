@@ -4,10 +4,13 @@ import { BrandMark } from './BrandMark'
 
 const navItems = [
   { label: '计划说明', href: '#how' },
-  { label: '任务中心', href: '#/task-center' },
 ]
 
-export function Header() {
+interface HeaderProps {
+  onJoin: () => void
+}
+
+export function Header({ onJoin }: HeaderProps) {
   const [open, setOpen] = useState(false)
 
   const close = () => setOpen(false)
@@ -22,9 +25,9 @@ export function Header() {
               {item.label}
             </a>
           ))}
-          <a className="button button--black site-nav__cta" href="#join" onClick={close}>
+          <button className="button button--black site-nav__cta" type="button" onClick={() => { close(); onJoin() }}>
             立即报名
-          </a>
+          </button>
         </nav>
         <button
           className="site-header__menu"
