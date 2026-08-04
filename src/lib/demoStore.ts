@@ -16,10 +16,22 @@ import {
 const STORAGE_KEY = 'baofuyu_system_v1'
 const CHANGE_EVENT = 'baofuyu:datachange'
 
+function applyCurrentPolicy(state: SystemState): SystemState {
+  return {
+    ...state,
+    tasks: state.tasks.map((task) => ({
+      ...task,
+      instructions: task.instructions.map((instruction) => (
+        instruction === '作品公开保留 7 天' ? '作品公开保留 30 天' : instruction
+      )),
+    })),
+  }
+}
+
 export function loadSystemState(): SystemState {
   try {
     const stored = localStorage.getItem(STORAGE_KEY)
-    return stored ? (JSON.parse(stored) as SystemState) : createSeedState()
+    return stored ? applyCurrentPolicy(JSON.parse(stored) as SystemState) : createSeedState()
   } catch {
     return createSeedState()
   }

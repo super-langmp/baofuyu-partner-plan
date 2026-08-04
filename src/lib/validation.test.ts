@@ -15,7 +15,6 @@ describe('validateApplication', () => {
         realName: '',
         phone: '123',
         platform: '',
-        profileUrl: '',
         inviteCode: '',
         source: 'direct',
         honeypot: '',
@@ -26,7 +25,6 @@ describe('validateApplication', () => {
     expect(errors.realName).toBeTruthy()
     expect(errors.phone).toBeTruthy()
     expect(errors.platform).toBeTruthy()
-    expect(errors.profileUrl).toBeTruthy()
     expect(errors.agreement).toBeTruthy()
   })
 })

@@ -46,7 +46,6 @@ export function AdminPage() {
               <div className="admin-row__main">
                 <strong>{application.realName}</strong>
                 <span>{application.platform} · {application.phone}</span>
-                <a href={application.profileUrl} target="_blank" rel="noreferrer">查看账号主页</a>
               </div>
               <div className="admin-row__meta">
                 <span>邀请码</span><strong>{application.inviteCodeUsed || '无'}</strong>

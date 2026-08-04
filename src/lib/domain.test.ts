@@ -14,6 +14,7 @@ import {
 describe('partner program domain flow', () => {
   it('rewards a post with 3 points and inviter once with 1 point', () => {
     let state = createSeedState()
+    expect(state.tasks[0].instructions).toContain('作品公开保留 30 天')
     const inviterBefore = balanceFor(state, DEMO_MEMBER_ID)
 
     state = approveApplication(state, 'app-pending-seed')

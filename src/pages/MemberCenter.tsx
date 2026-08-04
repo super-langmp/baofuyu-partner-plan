@@ -116,7 +116,7 @@ export function MemberCenter() {
               <strong>+{task?.rewardPoints || 3} 积分</strong>
             </div>
             <div className="today-task__requirements">
-              {(task?.instructions || ['使用指定素材', '开启商业内容声明', '作品公开保留 7 天']).map((instruction) => (
+              {(task?.instructions || ['使用指定素材', '开启商业内容声明', '作品公开保留 30 天']).map((instruction) => (
                 <span key={instruction}><Check size={17} />{instruction}</span>
               ))}
             </div>

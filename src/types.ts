@@ -1,4 +1,4 @@
-export const PLATFORMS = ['抖音', '快手', '小红书', '视频号'] as const
+export const PLATFORMS = ['抖音', '小红书'] as const
 
 export type Platform = (typeof PLATFORMS)[number]
 
@@ -6,7 +6,6 @@ export interface ApplicationInput {
   realName: string
   phone: string
   platform: Platform | ''
-  profileUrl: string
   inviteCode: string
   source: string
   honeypot: string
@@ -26,7 +25,6 @@ export interface ApplicationRecord {
   realName: string
   phone: string
   platform: Platform
-  profileUrl: string
   inviteCodeUsed: string | null
   source: string
   status: ApplicationStatus
@@ -41,7 +39,6 @@ export interface MemberRecord {
   realName: string
   phone: string
   platform: Platform
-  profileUrl: string
   inviteCode: string
   invitedByMemberId: string | null
   referralRewardedAt: string | null

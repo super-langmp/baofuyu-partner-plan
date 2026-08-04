@@ -22,7 +22,6 @@ export async function submitApplication(input: ApplicationInput): Promise<Applic
     p_real_name: input.realName.trim(),
     p_phone: input.phone.trim(),
     p_platform: input.platform,
-    p_profile_url: input.profileUrl.trim(),
     p_invite_code: input.inviteCode.trim().toUpperCase() || null,
     p_source: input.source,
   })
