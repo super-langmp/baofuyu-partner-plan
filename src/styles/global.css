@@ -210,71 +210,18 @@ input:focus-visible {
   z-index: 1;
   top: 50%;
   right: clamp(10px, 3.5vw, 64px);
-  width: min(39vw, 560px);
-  aspect-ratio: 570 / 590;
-  overflow: hidden;
+  width: min(29vw, 430px);
+  aspect-ratio: 2 / 3;
   pointer-events: none;
-  transform: translateY(-51%);
-  filter: drop-shadow(0 0 54px rgba(232, 201, 194, 0.12));
+  transform: translateY(-50%);
+  filter: drop-shadow(0 0 48px rgba(255, 157, 96, 0.22));
 }
 
-.campaign-hero__mark-surface,
-.campaign-hero__mark-sheen {
-  position: absolute;
-  inset: 0;
+.campaign-hero__mark img {
   display: block;
-  -webkit-mask: url('/baofuyu-logo.png') top center / 100% auto no-repeat;
-  mask: url('/baofuyu-logo.png') top center / 100% auto no-repeat;
-}
-
-.campaign-hero__mark-surface {
-  background:
-    radial-gradient(circle at 26% 22%, #fff 0 7%, transparent 27%),
-    linear-gradient(125deg, #8f8f98 0%, #f5f5f7 19%, #d7c3c1 38%, #fff 52%, #a7a7b0 71%, #f5f5f7 100%);
-  background-size: 180% 180%, 240% 240%;
-  animation: pearl-flow 9s ease-in-out infinite alternate;
-}
-
-.campaign-hero__mark-sheen {
-  background: linear-gradient(105deg, transparent 32%, rgba(255, 255, 255, 0.08) 42%, rgba(255, 255, 255, 0.92) 50%, rgba(232, 201, 194, 0.22) 57%, transparent 68%);
-  transform: translateX(-135%);
-  animation: pearl-sheen 6.8s cubic-bezier(0.45, 0, 0.2, 1) infinite;
-}
-
-@keyframes pearl-flow {
-  0% {
-    background-position: 12% 18%, 0% 34%;
-  }
-
-  50% {
-    background-position: 76% 62%, 58% 66%;
-  }
-
-  100% {
-    background-position: 32% 88%, 100% 24%;
-  }
-}
-
-@keyframes pearl-sheen {
-  0%,
-  22% {
-    opacity: 0;
-    transform: translateX(-135%);
-  }
-
-  34% {
-    opacity: 1;
-  }
-
-  55% {
-    opacity: 0;
-    transform: translateX(135%);
-  }
-
-  100% {
-    opacity: 0;
-    transform: translateX(135%);
-  }
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .campaign-hero__copy {
@@ -1413,9 +1360,9 @@ input:focus-visible {
   }
 
   .campaign-hero__mark {
-    right: -6vw;
-    width: min(45vw, 450px);
-    opacity: 0.62;
+    right: -2vw;
+    width: min(34vw, 360px);
+    opacity: 0.82;
   }
 
   .points-section {
@@ -1484,12 +1431,19 @@ input:focus-visible {
   }
 
   .campaign-hero__mark {
-    top: 54px;
-    right: 0;
-    width: 190px;
-    opacity: 0.13;
+    top: 72px;
+    right: -20px;
+    width: 180px;
+    aspect-ratio: 1;
+    overflow: hidden;
+    opacity: 0.2;
     transform: none;
     filter: none;
+  }
+
+  .campaign-hero__mark img {
+    height: auto;
+    object-fit: initial;
   }
 
   .campaign-hero__copy {

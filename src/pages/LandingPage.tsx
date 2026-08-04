@@ -111,8 +111,7 @@ export function LandingPage() {
       <main>
         <section className="campaign-hero page-shell" id="intro">
           <div className="campaign-hero__mark" aria-hidden="true">
-            <span className="campaign-hero__mark-surface" />
-            <span className="campaign-hero__mark-sheen" />
+            <img src={`${import.meta.env.BASE_URL}baofuyu-logo-copper.png`} alt="" />
           </div>
           <div className="campaign-hero__copy">
             <h1>宝肤语品牌<br />内容伙伴计划</h1>
